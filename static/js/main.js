@@ -27,10 +27,20 @@
       this.updateUI();
     },
     cacheElements() {
+      this.$covidCases = document.querySelector('#covid_cases');  
       this.$weatherIcon = document.querySelector('#weather_icon');  
       this.$weather = document.querySelector('#weather');  
-      this.$covidCases = document.querySelector('#covid_cases');       
+      this.$usersList = document.querySelector('#users_list');  
     }, 
+    updateCovidCases () {
+      getCovidCases ()
+      .then((data) => {
+        this.$covidCases.innerHTML = data.records[0].fields.cases;
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+    },
     updateWeather () {
       getWeather ()
       .then((data) => {
@@ -41,20 +51,17 @@
         console.log(error)
       });
     },
-    updateCovidCases () {
-      getCovidCases ()
-      .then((data) => {
-        this.$covidCases.innerHTML = data.records[0].fields.cases;
-      })
-      .catch((error) => {
-        console.log(error)
-      });
-    },
     getUsersList () {
       getJsonByPromise(pgmUsersList)
         .then((data) => {
-          //console.log(data);
-          return /* html */;
+          const users = data;
+            this.$usersList.innerHTML = users.map((user) => {
+              return `
+                <li>
+                ${user.voornaam} ${user.familienaam}
+                </li>          
+`;
+            }).join('');
         })
       .catch((error) => {
         console.log(error)

@@ -16,6 +16,19 @@
       https://api.github.com/users/%24%7Busername%7D/followers?page=1&per_page=100
 */
 
+// Covid in Ghent
+const covidCasesAPI = 'https://data.stad.gent/api/records/1.0/search/?dataset=dataset-of-cumulative-number-of-confirmed-cases-by-municipality&q=';
+
+async function getCovidCases () {
+  try {
+    const response = await fetch(covidCasesAPI, {});
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // Weather in Ghent
 const city = 'Ghent';
 const weatherAPIKey =  'aca7359c0786439399d92653212412';
@@ -31,19 +44,7 @@ async function getWeather () {
   }
 }
 
-
-const covidCasesAPI = 'https://data.stad.gent/api/records/1.0/search/?dataset=dataset-of-cumulative-number-of-confirmed-cases-by-municipality&q=';
-async function getCovidCases () {
-  try {
-    const response = await fetch(covidCasesAPI, {});
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Users
+// Users (in pgm.json)
 const pgmUsersList = './static/data/pgm.json';
 
 function getJsonByPromise (url) {
