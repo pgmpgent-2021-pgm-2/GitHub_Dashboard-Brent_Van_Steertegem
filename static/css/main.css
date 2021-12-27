@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+section {
+    display: flex;
+}
+
+body > section {
+    flex-direction: column;
+}
+   
+body > section > section {
+    justify-content: space-between;
+}
+
+body > section > section:first-of-type {
+    background-color: #114499;
+    color: #eebb11;
+}
+
+body > section > section > div, p {
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+
+#weather_icon {
+    height: 2rem;
+}
+
+body > section > section:last-of-type > div {
+    width: 60%;
+}
+
+body > section > section:last-of-type > div:first-of-type,
+body > section > section:last-of-type > div:last-of-type {
+    width: 20%;
+}
+
+body > section > section:last-of-type > div:first-of-type {
+    background-color: #334455;
+    color: white;
+}

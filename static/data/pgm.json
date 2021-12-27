@@ -1,0 +1,106 @@
+[
+    {
+        "voornaam": "Philippe",
+        "familienaam": "De Pauw - Waterschoot",
+        "email": "phildp@arteveldehs.be",
+        "thumbnail": "https://avatars.githubusercontent.com/u/390219?v=4",
+        "lijfspreuk": "Hi there 👋, I'm drdynscript 🖖",
+        "portfolio": {
+            "github_gebruikersnaam": "drdynscript",
+            "linkedin_gebruikersnaam": "Philippe De Pauw - Waterschoot"
+        },
+        "is_docent": true,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    },
+    {
+        "voornaam": "",
+        "familienaam": "",
+        "email": "",
+        "thumbnail": "",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 0
+    }
+]

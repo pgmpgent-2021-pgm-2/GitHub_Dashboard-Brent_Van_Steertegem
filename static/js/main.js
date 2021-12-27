@@ -1,20 +1,4 @@
 /*
--- DATA --
-    weer api (voor key={'abc'} 'abc' vervangen door eigen key)
-      http://api.weatherapi.com/v1/current.json?key={'abc'}&q=${Ghent}
-
-    aantal positieve Covid-cases in Gent
-      https://data.stad.gent/api/records/1.0/search/?dataset=dataset-of-cumulative-number-of-confirmed-cases-by-municipality&q=
-
-    fetch die wordt aangeroepen na ingeven naam (naam wordt vervangen door waarde uit zoekveld)
-      https://api.github.com/search/users?sort=desc&page=1&per_page=100&q=%24%7Bname%7D
-
-    repositories van gebruiker opvragen ({username} vervangen door geselecteerde gebruiker)
-      https://api.github.com/users/%24%7Busername%7D/repos?page=1&per_page=50
-
-    followers van gebruiker opvragen ({username} vervangen door geselecteerde gebruiker)
-      https://api.github.com/users/%24%7Busername%7D/followers?page=1&per_page=100
-
 -- TO DO --
     - minstens 8 personen beschrijven in pgm.json (data zelf verzamelen)
     - boolean docent geeft aan of persoon docent of student is
@@ -33,3 +17,53 @@
     - separeer de code per feature
     - in service.js: klassen implementeren (instanties in main.js)
 */
+(() => { 
+  const app = {
+    initialize () {
+      this.cacheElements();
+      this.updateWeather();
+      this.updateCovidCases();
+      this.getUsersList();
+      this.updateUI();
+    },
+    cacheElements() {
+      this.$weatherIcon = document.querySelector('#weather_icon');  
+      this.$weather = document.querySelector('#weather');  
+      this.$covidCases = document.querySelector('#covid_cases');       
+    }, 
+    updateWeather () {
+      getWeather ()
+      .then((data) => {
+        this.$weatherIcon.src = data.current.condition.icon;
+        this.$weather.innerHTML = `${data.current.temp_c}°C`;
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+    },
+    updateCovidCases () {
+      getCovidCases ()
+      .then((data) => {
+        this.$covidCases.innerHTML = data.records[0].fields.cases;
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+    },
+    getUsersList () {
+      getJsonByPromise(pgmUsersList)
+        .then((data) => {
+          //console.log(data);
+          return /* html */;
+        })
+      .catch((error) => {
+        console.log(error)
+      });
+    },
+    updateUI () {
+
+    }
+  }
+
+  app.initialize();
+})();
