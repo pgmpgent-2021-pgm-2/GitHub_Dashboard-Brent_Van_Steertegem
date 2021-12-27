@@ -44,8 +44,21 @@ async function getWeather () {
   }
 }
 
+// Github users
+const githubUsersAPI = `https://api.github.com/search/users?sort=desc&page=1&per_page=100&q=`
+
+async function getUsers (name) {
+  try {
+    const response = await fetch(`${githubUsersAPI}${name}`, {});
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // Users (in pgm.json)
-const pgmUsersList = './static/data/pgm.json';
+const pgmTeam = './static/data/pgm.json';
 
 function getJsonByPromise (url) {
   return new Promise((resolve, reject) => {
@@ -67,15 +80,15 @@ function getJsonByPromise (url) {
   });
 }
 
-class User {
-    constructor(firstname, lastname, email, thumbnail, quote, portfolio, isTeacher, dateOfBirth) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.thumbnail = thumbnail;
-        this.quote = quote;
-        this.portfolio = portfolio;
-        this.isTeacher = isTeacher;
-        this.dateOfBirth = dateOfBirth;
-    }
-}
+// class User {
+//     constructor(firstname, lastname, email, thumbnail, quote, portfolio, isTeacher, dateOfBirth) {
+//         this.firstname = firstname;
+//         this.lastname = lastname;
+//         this.email = email;
+//         this.thumbnail = thumbnail;
+//         this.quote = quote;
+//         this.portfolio = portfolio;
+//         this.isTeacher = isTeacher;
+//         this.dateOfBirth = dateOfBirth;
+//     }
+// }

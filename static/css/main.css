@@ -29,20 +29,46 @@ body > section > section > div, p {
 }
 
 body > section > section:last-of-type > div {
-    width: 50%;
+    width: auto;
 }
 
 body > section > section:last-of-type > div:first-of-type,
 body > section > section:last-of-type > div:last-of-type {
-    width: 25%;
+    width: 15rem;
 }
 
-body > section > section:last-of-type > div:first-of-type {
+body > section > section:last-of-type > div:first-of-type,
+body > section > section:last-of-type > div:last-of-type {
     background-color: #334455;
     color: white;
 }
 
-#users_list {
+ul {
     list-style: none;
     padding: 0;
+}
+
+ul > li {
+    border-bottom: 1px solid;
+    margin-bottom: 2rem;
+}
+
+ul > li img {
+    width: 3rem;
+    height: 3rem;
+}
+
+ul > li > p {
+    padding: 0;
+    padding-top: 0.5rem;
+}
+
+ul > li > div {
+    display: flex;
+    align-items: center;
+}
+
+ul > li > div > p {
+    padding: 0;
+    margin-left: 0.5rem;
 }

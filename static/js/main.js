@@ -23,14 +23,18 @@
       this.cacheElements();
       this.updateWeather();
       this.updateCovidCases();
-      this.getUsersList();
+      this.updatePgmTeam();
       this.updateUI();
+      document.querySelector('#search_submit').addEventListener('click', this.searchUsers);
     },
     cacheElements() {
       this.$covidCases = document.querySelector('#covid_cases');  
       this.$weatherIcon = document.querySelector('#weather_icon');  
       this.$weather = document.querySelector('#weather');  
-      this.$usersList = document.querySelector('#users_list');  
+      this.$githubUsers = document.querySelector('#github_users');
+      this.$repositories = document.querySelector('#repositories');
+      this.$followers = document.querySelector('#followers');
+      this.$pgmTeam = document.querySelector('#pgm_team');  
     }, 
     updateCovidCases () {
       getCovidCases ()
@@ -51,14 +55,38 @@
         console.log(error)
       });
     },
-    getUsersList () {
-      getJsonByPromise(pgmUsersList)
+    searchUsers () {
+      getUsers (document.querySelector('#search_param').value)
+      .then((data) => {
+        const users = data.items;
+        console.log(users);
+        document.querySelector('#github_users').innerHTML = users.map((user) => {
+            return `
+              <li>
+                <div>
+                  <img src="${user.avatar_url}" loading="lazy" alt="Avatar" />
+                  <p>${user.login}</p>
+                </div>
+              </li>          
+`;
+          }).join('');
+      })
+    .catch((error) => {
+      console.log(error)
+    });
+    },
+    updatePgmTeam () {
+      getJsonByPromise(pgmTeam)
         .then((data) => {
           const users = data;
-            this.$usersList.innerHTML = users.map((user) => {
+            this.$pgmTeam.innerHTML = users.map((user) => {
               return `
                 <li>
-                ${user.voornaam} ${user.familienaam}
+                  <div>
+                    <img src="${user.thumbnail}" loading="lazy" alt="Avatar" />
+                    <p>${user.portfolio.github_gebruikersnaam}</p>
+                  </div>
+                  <p>${user.voornaam} ${user.familienaam}</p>
                 </li>          
 `;
             }).join('');
