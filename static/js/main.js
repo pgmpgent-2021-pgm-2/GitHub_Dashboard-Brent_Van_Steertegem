@@ -63,15 +63,39 @@
         document.querySelector('#github_users').innerHTML = users.map((user) => {
             return `
               <li>
-                <div>
+                <div class="list_item">
                   <img src="${user.avatar_url}" loading="lazy" alt="Avatar" />
-                  <p>${user.login}</p>
+                  <p class="username">${user.login}</p>
                 </div>
               </li>          
 `;
-          }).join('');
+        }).join('');
       })
-    .catch((error) => {
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        document.querySelectorAll('.list_item').forEach(item => {item.addEventListener('click', app.loadUser)});
+      });    
+    },
+    loadUser () {
+      getUser(this.querySelector('.username').innerHTML)
+      .then((data) => {
+        getRepositories(data.login)
+        .then((repositories) => {
+          getFollowers(data.login)
+          .then((followers) => {
+            app.updateUI(data, repositories, followers)
+          })
+          .catch((error) => {
+            console.log(error)
+          });
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+      })
+      .catch((error) => {
       console.log(error)
     });
     },
@@ -82,9 +106,9 @@
             this.$pgmTeam.innerHTML = users.map((user) => {
               return `
                 <li>
-                  <div>
+                  <div class="list_item">
                     <img src="${user.thumbnail}" loading="lazy" alt="Avatar" />
-                    <p>${user.portfolio.github_gebruikersnaam}</p>
+                    <p class="username">${user.portfolio.github_gebruikersnaam}</p>
                   </div>
                   <p>${user.voornaam} ${user.familienaam}</p>
                 </li>          
@@ -93,10 +117,13 @@
         })
       .catch((error) => {
         console.log(error)
+      })
+      .finally(() => {
+        document.querySelectorAll('.list_item').forEach(item => {item.addEventListener('click', app.loadUser)});
       });
     },
-    updateUI () {
-
+    updateUI (data, repositories, followers) {
+      console.log(data, repositories, followers);
     }
   }
 

@@ -48,27 +48,31 @@ ul {
     padding: 0;
 }
 
-ul > li {
+li {
     border-bottom: 1px solid;
     margin-bottom: 2rem;
 }
 
-ul > li img {
+li:hover {
+    background-color: #506a85;
+}
+
+li img {
     width: 3rem;
     height: 3rem;
 }
 
-ul > li > p {
+li > p {
     padding: 0;
     padding-top: 0.5rem;
 }
 
-ul > li > div {
+li > div {
     display: flex;
     align-items: center;
 }
 
-ul > li > div > p {
+li > div > p {
     padding: 0;
     margin-left: 0.5rem;
 }
