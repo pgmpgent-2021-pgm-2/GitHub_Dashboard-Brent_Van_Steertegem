@@ -1,21 +1,3 @@
-/*
--- DATA --
-    weer api
-      http://api.weatherapi.com/v1/current.json?key=aca7359c0786439399d92653212412&q=${city}
-
-    aantal positieve Covid-cases in Gent
-      https://data.stad.gent/api/records/1.0/search/?dataset=dataset-of-cumulative-number-of-confirmed-cases-by-municipality&q=
-
-    fetch die wordt aangeroepen na ingeven naam (naam wordt vervangen door waarde uit zoekveld)
-      https://api.github.com/search/users?sort=desc&page=1&per_page=100&q=%24%7Bname%7D
-
-    repositories van gebruiker opvragen ({username} vervangen door geselecteerde gebruiker)
-      https://api.github.com/users/%24%7Busername%7D/repos?page=1&per_page=50
-
-    followers van gebruiker opvragen ({username} vervangen door geselecteerde gebruiker)
-      https://api.github.com/users/%24%7Busername%7D/followers?page=1&per_page=100
-*/
-
 // Covid cases in Ghent
 async function getCovidCases () {
   const covidCasesAPI = 'https://data.stad.gent/api/records/1.0/search/?dataset=dataset-of-cumulative-number-of-confirmed-cases-by-municipality&q=';
@@ -89,9 +71,8 @@ async function getFollowers (username) {
 }
 
 // Users (in pgm.json)
-const pgmTeam = './static/data/pgm.json';
-
-function getJsonByPromise (url) {
+function getJsonByPromise () {
+  const url = './static/data/pgm.json';
   return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
@@ -110,16 +91,3 @@ function getJsonByPromise (url) {
       xhr.send(null);
   });
 }
-
-// class User {
-//     constructor(firstname, lastname, email, thumbnail, quote, portfolio, isTeacher, dateOfBirth) {
-//         this.firstname = firstname;
-//         this.lastname = lastname;
-//         this.email = email;
-//         this.thumbnail = thumbnail;
-//         this.quote = quote;
-//         this.portfolio = portfolio;
-//         this.isTeacher = isTeacher;
-//         this.dateOfBirth = dateOfBirth;
-//     }
-// }

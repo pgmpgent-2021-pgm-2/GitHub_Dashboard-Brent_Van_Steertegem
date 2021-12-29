@@ -29,12 +29,12 @@ body > section > section > div, p {
 }
 
 body > section > section:last-of-type > div {
-    width: auto;
+    width: calc(100% - 40rem);
 }
 
 body > section > section:last-of-type > div:first-of-type,
 body > section > section:last-of-type > div:last-of-type {
-    width: 15rem;
+    width: 20rem;
 }
 
 body > section > section:last-of-type > div:first-of-type,
@@ -75,4 +75,9 @@ li > div {
 li > div > p {
     padding: 0;
     margin-left: 0.5rem;
+}
+
+.hidden {
+    position: fixed;
+    visibility: hidden;
 }

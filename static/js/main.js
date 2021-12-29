@@ -1,37 +1,22 @@
-/*
--- TO DO --
-    - minstens 8 personen beschrijven in pgm.json (data zelf verzamelen)
-    - boolean docent geeft aan of persoon docent of student is
-    - geboorterdatum is type 'number epoch time'
-
-    - oplijsten van github gebruikersnaam die een naam bevatten, deze wordt ingegeven in een zoekveld, enter knopt roept fetch-methode aan
-    - Github-gebruiker selecteren uit lijst toont de details (details inclusief lijfspreuk en leeftijd, repositories en followers)
-    - Github gebuiker selecteren door op de portfolio eigenschap github te selecteren toont ook de gebruiker (zelfde scherm als hierboven)
-
--- Concreet --
-    - start van de applicatie: repos en followers van Githuuser pgmgent worden geladen, leden van PGM-team worden ingeladen, positieve COVID-gevallen in Gent worden getoond, huidige weer in Gent (graden in Celsius + afbeelding uit JSON)
-    - Klikken op een gebruiker uit de lijst (PGM-team): toont details, repositories en followers (username, avatar en link naar Github-page)
-    - Na invoeren in zoekveld: fetch alle personen die voldoen
-    - Selecteren van gebruiker uit resultaat zoekopdracht: toont zelfde detail als PGM-user
-
-    - separeer de code per feature
-    - in service.js: klassen implementeren (instanties in main.js)
-*/
 (() => { 
   const app = {
     initialize () {
       this.cacheElements();
       this.updateWeather();
       this.updateCovidCases();
+      this.initializeDashboard();
       this.updatePgmTeam();
-      this.updateUI();
       document.querySelector('#search_submit').addEventListener('click', this.searchUsers);
+      
     },
     cacheElements() {
       this.$covidCases = document.querySelector('#covid_cases');  
       this.$weatherIcon = document.querySelector('#weather_icon');  
       this.$weather = document.querySelector('#weather');  
       this.$githubUsers = document.querySelector('#github_users');
+      this.$userAvatar = document.querySelector('#user_avatar');
+      this.$pgmUser = document.querySelector('#pgm_user')
+      this.$quote = document.querySelector('#quote');
       this.$repositories = document.querySelector('#repositories');
       this.$followers = document.querySelector('#followers');
       this.$pgmTeam = document.querySelector('#pgm_team');  
@@ -63,7 +48,7 @@
         document.querySelector('#github_users').innerHTML = users.map((user) => {
             return `
               <li>
-                <div class="list_item">
+                <div class="github_list_item">
                   <img src="${user.avatar_url}" loading="lazy" alt="Avatar" />
                   <p class="username">${user.login}</p>
                 </div>
@@ -75,17 +60,60 @@
         console.log(error)
       })
       .finally(() => {
-        document.querySelectorAll('.list_item').forEach(item => {item.addEventListener('click', app.loadUser)});
+        document.querySelectorAll('.github_list_item').forEach(item => {item.addEventListener('click', app.loadUser)});
       });    
     },
     loadUser () {
       getUser(this.querySelector('.username').innerHTML)
       .then((data) => {
-        getRepositories(data.login)
+        app.loadDashboard(data, false);
+      })
+      .catch((error) => {
+      console.log(error)
+    });
+    },
+    loadDashboard (data, internalData) {
+      if (internalData) {   
+        if (this.$pgmUser.classList.contains('hidden')) {
+          this.$pgmUser.classList.remove('hidden');   
+        }             
+        username = data.portfolio.github_gebruikersnaam;
+        this.$userAvatar.src = data.thumbnail;
+        if (data.lijfspreuk != ""){
+          this.$quote.innerHTML = data.lijfspreuk;
+        } else {
+          this.$quote.innerHTML = 'Deze gebruiker heeft geen lijfspreuk opgegeven.'
+        }
+      } else {
+        if (!this.$pgmUser.classList.contains('hidden')) {
+          this.$pgmUser.classList.add('hidden');   
+        }         
+        username = data.login;
+        this.$userAvatar.src = data.avatar_url;
+      }
+      getRepositories(username)
         .then((repositories) => {
-          getFollowers(data.login)
+          getFollowers(username)
           .then((followers) => {
-            app.updateUI(data, repositories, followers)
+            this.$repositories.innerHTML = repositories.map((repository) => {
+              return `
+                <li>
+                  <div>
+                    <p>${repository.name}</p>
+                  </div>
+                </li>          
+      `;
+            }).join('');
+            this.$followers.innerHTML = followers.map((follower) => {
+              return `
+                <li>
+                  <div>
+                    <img src="${follower.avatar_url}" loading="lazy" alt="avatar" />
+                    <p class="username">${follower.login}</p>
+                  </div>
+                </li>          
+      `;
+            }).join('');
           })
           .catch((error) => {
             console.log(error)
@@ -94,19 +122,35 @@
         .catch((error) => {
           console.log(error)
         });
+    },
+    initializeDashboard () {
+      getUser('pgmgent')
+      .then((data) => {
+        app.loadDashboard(data, false);
       })
       .catch((error) => {
       console.log(error)
     });
     },
+    loadUserFromJson () {
+      const username = this.querySelector('.username').innerHTML;
+      getJsonByPromise()
+      .then((data) => {
+        const user = data.find(user => user.portfolio.github_gebruikersnaam === username);
+            app.loadDashboard(user, true)
+          })
+      .catch((error) => {
+        console.log(error)
+      });
+    },
     updatePgmTeam () {
-      getJsonByPromise(pgmTeam)
+      getJsonByPromise()
         .then((data) => {
           const users = data;
             this.$pgmTeam.innerHTML = users.map((user) => {
               return `
                 <li>
-                  <div class="list_item">
+                  <div class="pgm_list_item">
                     <img src="${user.thumbnail}" loading="lazy" alt="Avatar" />
                     <p class="username">${user.portfolio.github_gebruikersnaam}</p>
                   </div>
@@ -119,13 +163,9 @@
         console.log(error)
       })
       .finally(() => {
-        document.querySelectorAll('.list_item').forEach(item => {item.addEventListener('click', app.loadUser)});
+        document.querySelectorAll('.pgm_list_item').forEach(item => {item.addEventListener('click', app.loadUserFromJson)});
       });
-    },
-    updateUI (data, repositories, followers) {
-      console.log(data, repositories, followers);
     }
   }
-
   app.initialize();
 })();
