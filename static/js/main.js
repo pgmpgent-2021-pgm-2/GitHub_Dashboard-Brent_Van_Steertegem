@@ -6,8 +6,9 @@
       this.updateCovidCases();
       this.initializeDashboard();
       this.updatePgmTeam();
-      document.querySelector('#search_submit').addEventListener('click', this.searchUsers);
-      
+      document.querySelector('#logo').addEventListener('click', this.initializeDashboard);
+      document.querySelector('#search_enter').addEventListener('click', this.searchUsers);
+      document.querySelector('#search_param').addEventListener('keyup', this.searchByEnter);
     },
     cacheElements() {
       this.$covidCases = document.querySelector('#covid_cases');  
@@ -47,12 +48,19 @@
         console.log(error)
       });
     },
+    searchByEnter () {
+      // Number 13 is the "Enter" key on the keyboard
+      if (event.keyCode === 13) {
+        document.querySelector('#search_enter').click();
+      }
+    },
     searchUsers () {
       getUsers (document.querySelector('#search_param').value)
       .then((data) => {
-        const users = data.items;
-        console.log(users);
-        document.querySelector('#github_users').innerHTML = users.map((user) => {
+        console.log(data);
+        if (data.total_count > 0) {
+          const users = data.items;
+          document.querySelector('#github_users').innerHTML = users.map((user) => {
             return `
               <li>
                 <div class="github_list_item">
@@ -62,6 +70,9 @@
               </li>          
 `;
         }).join('');
+        } else {
+          document.querySelector('#github_users').innerHTML = '<li><p>Geen gebruikers gevonden</p></li>';
+        }        
       })
       .catch((error) => {
         console.log(error)
@@ -141,7 +152,6 @@
       `;
             }).join('');
             this.$followers.innerHTML = followers.map((follower) => {
-              console.log(follower);
               return `
                 <li>
                 <a href="${follower.html_url}">
