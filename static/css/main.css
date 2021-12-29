@@ -1,46 +1,44 @@
 body {
     margin: 0;
+    background-color: #070707;
+    color: #d2e7f1;
+    word-break: break-word;
 }
 
 section {
     display: flex;
 }
-
-body > section {
-    flex-direction: column;
-}
    
-body > section > section {
+body > section {
     justify-content: space-between;
 }
 
-body > section > section:first-of-type {
-    background-color: #114499;
-    color: #eebb11;
-}
-
-body > section > section > div, p {
-    margin: 0;
-    padding: 0.5rem 1rem;
+body> section:first-of-type {
+    background-color: #1eadf1;
+    color: black;
 }
 
 #weather_icon {
-    height: 2rem;
+    margin: 0.3rem 0.3rem;
+    margin-right: 1.3rem;
+    height: 3rem;
 }
 
-body > section > section:last-of-type > div {
+body > section:last-of-type > div {
+    border-left: 1px solid;
+    border-right: 1px solid;
     width: calc(100% - 40rem);
+    min-width: 25rem;
+    padding: 0 2rem;
 }
 
-body > section > section:last-of-type > div:first-of-type,
-body > section > section:last-of-type > div:last-of-type {
+body > section:last-of-type > div:first-of-type,
+body > section:last-of-type > div:last-of-type {
     width: 20rem;
-}
-
-body > section > section:last-of-type > div:first-of-type,
-body > section > section:last-of-type > div:last-of-type {
-    background-color: #334455;
-    color: white;
+    min-width: 20rem;
+    /* background-color: #14213e; */
+    border: 0;
+    padding: 0;
 }
 
 ul {
@@ -48,36 +46,124 @@ ul {
     padding: 0;
 }
 
-li {
-    border-bottom: 1px solid;
-    margin-bottom: 2rem;
-}
-
 li:hover {
     background-color: #506a85;
 }
 
-li img {
-    width: 3rem;
-    height: 3rem;
-}
+#followers img {height: 10rem;width: 10rem;}
 
 li > p {
     padding: 0;
     padding-top: 0.5rem;
 }
 
-li > div {
+.hidden {
+    position: fixed;
+    left: -50rem;
+}
+
+#user_avatar {
+    min-height: 25rem;
+    max-height: 35rem;
+    height: calc(100vw - 45.3rem);
+    max-width: 35rem;
+    background-size: 100%;
+    background-position: center;
+    margin: 0 auto;
+}
+
+p {
+    margin: 0.5rem;
+}
+
+body > section > section > p {
+    padding: 0;
+    margin: 1rem;
+    font-size: 1.4rem;
+}
+
+p#weather {
+    margin-right: 0;
+}
+
+body > section > div > h1, body > section > div > form {
+    margin: 1.5rem 1rem;
+    font-size: 2rem;
+    color: #1eadf1;
+}
+
+.github_list_item img, .pgm_list_item img {
+    height: 4rem;
+    width: 4rem;
+}
+
+.github_list_item, .pgm_list_item {
+    padding: 1rem;
+    border-bottom: 1px solid;
+}
+
+.github_list_item {
     display: flex;
     align-items: center;
 }
 
-li > div > p {
-    padding: 0;
+.pgm_list_item > div {
+    display: flex;
+    align-items: center;
+}
+
+#github_users, #pgm_team {
+    border-top: 1px solid;
+}
+
+
+a {
+    margin: 0 0.5rem;
+    color: inherit;
+}
+
+
+body > section:last-of-type > div:nth-of-type(2) > * {
+    margin-left: 0;
+}
+
+body > section:last-of-type > div:nth-of-type(2) > label, body > section:last-of-type > div:nth-of-type(2) > p, body > section:last-of-type > div:nth-of-type(2) > a, body > section:last-of-type > div:nth-of-type(2) > ul, #pgm_user > * {
     margin-left: 0.5rem;
 }
 
-.hidden {
-    position: fixed;
-    visibility: hidden;
+.pgm_list_item > p {
+    margin: 0.5rem 0 0 0;
+}
+
+#repositories p {
+    margin: 0;
+}
+
+body > section:last-of-type > div:nth-of-type(2) > p, #pgm_user > p {
+    margin-left: 1.5rem;
+}
+
+#followers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#followers p {position: absolute;right: 0;bottom: 0;background: rgba(7,7,7,0.8);color: #d2e7f1;margin: 0;padding: 0.5rem;font-size: 1.2rem;text-align: right;}
+
+#followers li > div {
+    position: relative;
+}
+
+#followers div {
+    position: relative;
+    height: 10rem;
+}
+
+#followers a {
+    margin: 0;
+}
+
+#followers li {
+    height: 10rem;
+    margin: 0 1rem 1rem 0;
 }

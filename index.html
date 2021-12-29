@@ -9,39 +9,47 @@
 </head>
 <body>
     <section>
+        <div>Github logo</div>
         <section>
-            <div>Github logo</div>
-            <section>
-                <p id="covid_cases"></p>
-                <p id="weather"></p>
-                <img id="weather_icon"src="" alt="Weather icon" loading="lazy" />
-            </section>            
-        </section>        
-        <section>
-            <div>
-                <h1>Github Users</h1>
-                <form>
-                    <input id="search_param" placeholder="Github user" type="text"/>
-                    <input id="search_submit" value="Search" type="button"/>
-                </form>
-                <ul id="github_users"></ul>
+            <p id="covid_cases"></p>
+            <p id="weather"></p>
+            <img id="weather_icon"src="" alt="Weather icon" loading="lazy" />
+        </section>            
+    </section>        
+    <section>
+        <div>
+            <h1>Github Users</h1>
+            <form>
+                <input id="search_param" placeholder="Github user" type="text"/>
+                <input id="search_submit" value="Search" type="button"/>
+            </form>
+            <ul id="github_users"></ul>
+        </div>
+        <div>
+            <div id="user_avatar"></div>
+            <h1 id="dashboard_username"></h2>
+            <div id="pgm_user" class="hidden">
+                <label for="quote">Lijfspreuk:</label>
+                <p id="quote"></p>
+                <label for="is_lecturer">Over <span id="label_is_lecturer"></span>:</label>
+                <p id="is_lecturer"></p>
+                <label for="birthday">Leeftijd:</label>
+                <p id="birthday"></p>
+                <label for="linkedIn_username">LinkedIn:</label>
+                <p id="linkedIn_username"></p>
             </div>
-            <div>
-                <img id="user_avatar" src="" loading="lazy" alt="avatar"/>
-                <div id="pgm_user" class="hidden">
-                    <label for="quote">Lijfspreuk:</label>
-                    <p id="quote"></p>
-                    <p id="birthday"></p></div>
-                <h1>Repositories</h1>
-                <ul id="repositories"></ul>
-                <h1>Followers</h1>
-                <ul id="followers"></ul>
-            </div>
-            <div>
-                <h1>PGM-team</h1>
-                <ul id="pgm_team"></ul>
-            </div>
-        </section>
+            <label for="user_type">Type:</label>
+            <p id="user_type"></p>
+            <a id="link_page" href=""></a>
+            <h1>Repositories</h1>
+            <ul id="repositories"></ul>
+            <h1>Followers</h1>
+            <ul id="followers"></ul>
+        </div>
+        <div>
+            <h1>PGM-team</h1>
+            <ul id="pgm_team"></ul>
+        </div>
     </section>
     <script src="static/js/services.js"></script>
     <script src="static/js/main.js"></script>
