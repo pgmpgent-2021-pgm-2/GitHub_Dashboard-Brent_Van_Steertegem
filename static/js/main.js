@@ -224,7 +224,7 @@
                       <p class="username">${user.portfolio.github_gebruikersnaam}</p>
                     </div>
                     <p>${user.voornaam} ${user.familienaam}</p>
-                  <div>
+                  </div>
                 </li>          
               `;
             }).join('');
