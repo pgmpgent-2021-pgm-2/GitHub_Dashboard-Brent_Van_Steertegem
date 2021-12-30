@@ -30,7 +30,7 @@
       this.$pgmTeam = document.querySelector('#pgm_team');  
     }, 
     updateCovidCases () {
-      getCovidCases ()
+      new CovidApi().getCovidCases ()
       .then((data) => {
         this.$covidCases.innerHTML = data.records[0].fields.cases;
       })
@@ -39,7 +39,7 @@
       });
     },
     updateWeather () {
-      getWeather ()
+      new WeatherApi().getWeather ()
       .then((data) => {
         this.$weatherIcon.src = data.current.condition.icon;
         this.$weather.innerHTML = `${data.current.temp_c}°C`;
@@ -51,11 +51,13 @@
     searchByEnter () {
       // Number 13 is the "Enter" key on the keyboard
       if (event.keyCode === 13) {
+        event.preventDefault();
         document.querySelector('#search_enter').click();
       }
     },
     searchUsers () {
-      getUsers (document.querySelector('#search_param').value)
+      event.preventDefault();
+      new GithubApi().getUsers (document.querySelector('#search_param').value)
       .then((data) => {
         console.log(data);
         if (data.total_count > 0) {
@@ -68,10 +70,10 @@
                   <p class="username">${user.login}</p>
                 </div>
               </li>          
-`;
+            `;
         }).join('');
         } else {
-          document.querySelector('#github_users').innerHTML = '<li><p>Geen gebruikers gevonden</p></li>';
+          document.querySelector('#github_users').innerHTML = '<li class="no_items"><p>Geen gebruikers gevonden</p></li>';
         }        
       })
       .catch((error) => {
@@ -82,7 +84,7 @@
       });    
     },
     loadUser () {
-      getUser(this.querySelector('.username').innerHTML)
+      new GithubApi().getUser(this.querySelector('.username').innerHTML)
       .then((data) => {
         app.loadDashboard(data, false);
       })
@@ -91,6 +93,7 @@
     });
     },
     loadDashboard (data, internalData) {
+      const githubApi = new GithubApi();
       this.$repositories.innerHTML = "<p>Loading..</p>";
       this.$followers.innerHTML = "<p>Loading..</p>";
       let username;
@@ -118,7 +121,7 @@
         } else {
           this.$linkedInUsername.innerHTML = 'Deze gebruiker heeft geen LinkedIn gebruikersnaam opgegeven.'
         }
-        getUser(username)
+        githubApi.getUser(username)
         .then((externalData) => {
           this.$userType.innerHTML = externalData.type;
           this.$linkPage.innerHTML = `Klik hier om naar de pagina van <span>${username}</span> te gaan.`;
@@ -138,10 +141,11 @@
         this.$linkPage.innerHTML = `Klik hier om naar de pagina van <span>${username}</span> te gaan.`;
           this.$linkPage.href = data.html_url;
       }
-      getRepositories(username)
+      githubApi.getRepositories(username)
         .then((repositories) => {
-          getFollowers(username)
+          githubApi.getFollowers(username)
           .then((followers) => {
+            if (repositories.length > 0) {              
             this.$repositories.innerHTML = repositories.map((repository) => {
               return `
                 <li>
@@ -149,20 +153,35 @@
                     <p>${repository.name}</p>
                   </div>
                 </li>          
-      `;
+              `;
             }).join('');
-            this.$followers.innerHTML = followers.map((follower) => {
-              return `
-                <li>
-                <a href="${follower.html_url}">
-                    <div>
-                      <img src="${follower.avatar_url}" loading="lazy" alt="avatar" />
-                      <p class="username">${follower.login}</p>
-                    </div>
-                  </a>
-                </li>          
-      `;
-            }).join('');
+            } else {
+              this.$repositories.innerHTML = `
+                  <li class="no_items">
+                  <p>Geen repositories!</p>
+                  </li>          
+                `;
+            }
+            if (followers.length > 0) {
+              this.$followers.innerHTML = followers.map((follower) => {
+                return `
+                  <li>
+                  <a href="${follower.html_url}">
+                      <div>
+                        <img src="${follower.avatar_url}" loading="lazy" alt="avatar" />
+                        <p class="username">${follower.login}</p>
+                      </div>
+                    </a>
+                  </li>          
+                `;
+              }).join('');
+            } else {
+              this.$followers.innerHTML = `
+                  <li class="no_items">
+                  <p>Geen volgers!</p>
+                  </li>          
+                `;
+            }            
           })
           .catch((error) => {
             console.log(error)
@@ -173,7 +192,7 @@
         });
     },
     initializeDashboard () {
-      getUser('pgmgent')
+      new GithubApi().getUser('pgmgent')
       .then((data) => {
         app.loadDashboard(data, false);
       })
@@ -183,7 +202,7 @@
     },
     loadUserFromJson () {
       const username = this.querySelector('.username').innerHTML;
-      getJsonByPromise()
+      new GetJson().getJsonByPromise()
       .then((data) => {
         const user = data.find(user => user.portfolio.github_gebruikersnaam === username);
             app.loadDashboard(user, true)
@@ -193,7 +212,7 @@
       });
     },
     updatePgmTeam () {
-      getJsonByPromise()
+      new GetJson().getJsonByPromise()
         .then((data) => {
           const users = data;
             this.$pgmTeam.innerHTML = users.map((user) => {
@@ -207,7 +226,7 @@
                     <p>${user.voornaam} ${user.familienaam}</p>
                   <div>
                 </li>          
-`;
+              `;
             }).join('');
         })
       .catch((error) => {

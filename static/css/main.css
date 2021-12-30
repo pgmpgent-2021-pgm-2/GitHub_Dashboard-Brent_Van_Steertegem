@@ -125,7 +125,7 @@ body > section > div > h1, body > section > div:first-of-type > div {
 
 
 a {
-    margin: 0 0.5rem;
+    font-size: 1.1rem;
     color: inherit;
 }
 
@@ -136,18 +136,17 @@ body > section:last-of-type > div:nth-of-type(2) > * {
 
 body > section:last-of-type > div:nth-of-type(2) > label, body > section:last-of-type > div:nth-of-type(2) > p, body > section:last-of-type > div:nth-of-type(2) > a, body > section:last-of-type > div:nth-of-type(2) > ul, #pgm_user > * {
     margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .pgm_list_item > p {
     margin: 0.5rem 0 0 0;
 }
 
-#repositories p {
-    margin: 0;
-}
-
 body > section:last-of-type > div:nth-of-type(2) > p, #pgm_user > p {
     margin-left: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 #followers {
@@ -155,7 +154,16 @@ body > section:last-of-type > div:nth-of-type(2) > p, #pgm_user > p {
     flex-wrap: wrap;
 }
 
-#followers p {position: absolute;right: 0;bottom: 0;background: rgba(7,7,7,0.8);color: #d2e7f1;margin: 0;padding: 0.5rem;font-size: 1.2rem;text-align: right;}
+#followers a div p {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: rgba(7,7,7,0.8);
+    color: #d2e7f1;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-align: right;}
 
 #followers li > div {
     position: relative;
@@ -184,10 +192,44 @@ input[type=text] {
     outline: 0;
 }
 
-input[type=button] {
+input[type=submit] {
     border: 0;
     background: transparent;
     color: #1eadf1;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+#repositories li, .no_items {
+    width: 100%;
+    margin: 0;
+    height: fit-content;
+}
+
+#repositories li p, .no_items p{
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 6px;
+}
+
+#repositories li {
+    margin: 1rem 0;
+}
+
+.no_items p {
+    text-align: center;
+}
+
+.no_items:hover {
+    background-color: transparent;
+}
+
+#link_page:hover {
+    color: #1eadf1;
+}
+
+#github_users .no_items {
+    margin: 1rem;
+    width: inherit;
 }
