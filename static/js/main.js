@@ -8,6 +8,7 @@
       this.initializeDashboard();
       this.updatePgmTeam();
       document.querySelector('#logo').addEventListener('click', this.initializeDashboard);
+      document.querySelector('#light_mode').addEventListener('click', this.changeMode);
       document.querySelector('#search_enter').addEventListener('click', this.searchUsers);
       document.querySelector('#search_param').addEventListener('keyup', this.searchByEnter);      
     },
@@ -30,6 +31,13 @@
       this.$followers = document.querySelector('#followers');
       this.$pgmTeam = document.querySelector('#pgm_team');  
     }, 
+    changeMode () {
+      if (document.querySelector('#light_mode').checked == true) {
+          document.body.classList.add('light_mode');
+      } else {
+          document.body.classList.remove('light_mode');
+      }
+    },
     updateClock () {
       document.querySelector('#clock').innerHTML = new Date().toLocaleTimeString('nl-BE', 'Ghent');
       setInterval(this.updateClock, 1000);

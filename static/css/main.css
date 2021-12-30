@@ -21,7 +21,12 @@ body> section:first-of-type {
 }
 
 body > section:first-of-type > * {
-    width: 13.7rem;
+    width: 20rem;
+}
+
+body > section:first-of-type > div {
+    display: flex;
+    align-items: center;
 }
 
 svg {
@@ -30,8 +35,20 @@ svg {
     margin: 0.5rem 1rem;
 }
 
+body > section:first-of-type > div > section {
+    align-items: center;
+}
+
 p {
     margin: 0.5rem;
+}
+
+#light_mode {
+    height: 1.4rem;
+    width: 1.4rem;
+    appearance: none;
+    border-radius: 6px;
+    border: 1px solid #070707;
 }
 
 #clock {
@@ -42,6 +59,10 @@ p {
     padding: 0;
     margin: 1rem;
     font-size: 1.4rem;
+}
+
+body > section:first-of-type > section {
+    justify-content: right;
 }
 
 p#weather {
@@ -93,16 +114,17 @@ ul {
 }
 
 #github_users, #pgm_team {
-    border-top: 1px solid;
+    border-top: 1px solid #1eadf1;
 }
 
 li:hover {
-    background-color: #506a85;
+    background-color: #1eadf1;
+    color: #070707;
 }
 
 .github_list_item, .pgm_list_item {
     padding: 1rem;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #1eadf1;
 }
 
 .github_list_item {
@@ -121,7 +143,8 @@ li:hover {
 }
 
 .no_items:hover {
-    background-color: transparent;
+    background-color: inherit;
+    color: inherit;
 }
 
 #repositories li p, .no_items p{
@@ -136,8 +159,8 @@ li:hover {
 }
 
 body > section:last-of-type > div:nth-of-type(2) {
-    border-left: 1px solid;
-    border-right: 1px solid;
+    border-left: 1px solid #1eadf1;
+    border-right: 1px solid #1eadf1;
     width: calc(100% - 40rem);
     min-width: 25rem;
     padding: 0 2rem;
@@ -192,6 +215,10 @@ a {
     margin: 1rem 0;
 }
 
+#repositories li:hover {
+    border-radius: 6px;
+}
+
 #followers {
     display: flex;
     flex-wrap: wrap;
@@ -235,4 +262,66 @@ a {
 
 .pgm_list_item > p {
     margin: 0.5rem 0 0 0;
+}
+
+/* Styling for light mode */
+.light_mode {
+    background-color: #f0f3f5;
+    color: #070707;
+}
+
+body.light_mode> section:first-of-type {
+    background-color: #054cb7;
+    color: #f0f3f5;
+}
+
+.light_mode svg {
+    fill: #f0f3f5;
+    background-color: transparent;
+}
+
+#light_mode:checked {
+    background-color: #f0f3f5;
+    border: 1px solid #054cb7;
+    position: relative;
+}
+
+#light_mode:checked:after {
+    content: "\2713";
+    color: #070707;
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0.26rem;
+}
+
+.light_mode h1, .light_mode input[type=submit] {
+    color: #054cb7;
+}
+
+.light_mode #github_users, .light_mode #pgm_team {
+    border-top: 1px solid #054cb7;
+}
+
+.light_mode .github_list_item, .light_mode .pgm_list_item {
+    border-bottom: 1px solid #054cb7; 
+}
+
+body.light_mode > section:last-of-type > div:nth-of-type(2) {
+    border-left: 1px solid #054cb7;
+    border-right: 1px solid #054cb7;
+}
+
+.light_mode li:hover {
+    background-color: #054cb7;
+    color: #f0f3f5;
+}
+
+.light_mode .no_items:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+.light_mode #link_page:hover{
+    color: #054cb7;
 }
