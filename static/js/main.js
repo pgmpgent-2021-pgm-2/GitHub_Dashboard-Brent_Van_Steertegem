@@ -115,7 +115,7 @@
           this.$pgmUser.classList.remove('hidden');   
         }             
         username = data.portfolio.github_gebruikersnaam;
-        this.$userAvatar.style.backgroundImage = `url("${data.thumbnail}")`;
+        this.$userAvatar.style.backgroundImage = `url("./static/media/images/${data.thumbnail}")`;
         this.$dashboardUsername.innerHTML = username;
         if (data.lijfspreuk != ""){
           this.$quote.innerHTML = data.lijfspreuk;
@@ -233,7 +233,7 @@
                 <li>
                   <div class="pgm_list_item">
                     <div>
-                      <img src="${user.thumbnail}" loading="lazy" alt="Avatar" />
+                      <img src="./static/media/images/${user.thumbnail}" loading="lazy" alt="Avatar" />
                       <p class="username">${user.portfolio.github_gebruikersnaam}</p>
                     </div>
                     <p>${user.voornaam} ${user.familienaam}</p>
