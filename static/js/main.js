@@ -2,13 +2,14 @@
   const app = {
     initialize () {
       this.cacheElements();
+      this.updateClock();
       this.updateWeather();
       this.updateCovidCases();
       this.initializeDashboard();
       this.updatePgmTeam();
       document.querySelector('#logo').addEventListener('click', this.initializeDashboard);
       document.querySelector('#search_enter').addEventListener('click', this.searchUsers);
-      document.querySelector('#search_param').addEventListener('keyup', this.searchByEnter);
+      document.querySelector('#search_param').addEventListener('keyup', this.searchByEnter);      
     },
     cacheElements() {
       this.$covidCases = document.querySelector('#covid_cases');  
@@ -29,6 +30,10 @@
       this.$followers = document.querySelector('#followers');
       this.$pgmTeam = document.querySelector('#pgm_team');  
     }, 
+    updateClock () {
+      document.querySelector('#clock').innerHTML = new Date().toLocaleTimeString('nl-BE', 'Ghent');
+      setInterval(this.updateClock, 1000);
+    },
     updateCovidCases () {
       new CovidApi().getCovidCases ()
       .then((data) => {

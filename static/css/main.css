@@ -17,6 +17,11 @@ body> section:first-of-type {
     background-color: #1eadf1;
     color: black;
     align-items: center;
+    min-width: 69rem;
+}
+
+body > section:first-of-type > * {
+    width: 13.7rem;
 }
 
 svg {
@@ -29,7 +34,11 @@ p {
     margin: 0.5rem;
 }
 
-body > section > section > p {
+#clock {
+    text-align: center;
+}
+
+#clock, body > section > section > p {
     padding: 0;
     margin: 1rem;
     font-size: 1.4rem;
@@ -48,7 +57,6 @@ p#weather {
 body > section:last-of-type > div {
     width: 20rem;
     min-width: 20rem;
-    /* background-color: #14213e; */
     border: 0;
     padding: 0;
 }
@@ -57,6 +65,10 @@ body > section > div > h1, body > section > div:first-of-type > div {
     margin: 1.5rem 1rem;
     font-size: 2rem;
     color: #1eadf1;
+}
+
+form {
+    margin: 1.5rem 1rem; 
 }
 
 input[type=text] {
