@@ -1,0 +1,106 @@
+[
+    {
+        "voornaam": "Philippe",
+        "familienaam": "De Pauw - Waterschoot",
+        "email": "phildp@arteveldehs.be",
+        "thumbnail": "pgm-drdynscript.png",
+        "lijfspreuk": "Hi there 👋, I'm drdynscript 🖖 <img loading='lazy' src='https://camo.githubusercontent.com/e719ff1473c6a17470b5737cf19060a410a0e305baced41f10d5e3a9c8c1e8f0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f537461792d536166652d7265643f6c6f676f3d646174613a696d6167652f737667253262786d6c3b6261736536342c50484e325a7942705a443069544746355a584a664d5349675a573568596d786c4c574a685932746e636d3931626d5139496d356c64794177494441674e544577494455784d434967614756705a326830505349314d54496949485a705a58644362336739496a41674d4341314d5441674e5445774969423361575230614430694e5445794969423462577875637a30696148523063446f764c336433647935334d793576636d63764d6a41774d43397a646d6369506a786e506a786e506a78775958526f49475139496d30784e7a51754e6a45674d7a4177597930794d4334314f4341774c5451774c6a5532494459754f5455744e5459754e6a6b674d546b754e7a4a734c5445784d4334774f5341344e5334334f5464324d5441304c6a51344d3267314d7934314d6a6c734e7a59754e4463784c545931614445794e6934344d6e59744d545131656949675a6d6c736244306949325a6d5a47526a5a534976506a77765a7a3438634746306143426b50534a744e5441794c6a4533494449344e4334334d6d4d77494467754f5455744d793432494445334c6a67354c5445774c6a6334494449304c6a5132624330784e4467754e5459674d544d314c6a6779614330334f4334784f4859744f44566f4e6a67754d5468734d5445304c6a4d304c5445774d4334794d574d784d6934344d6930784d5334794d79417a4d6934774e6930784d4334354d6941304e4334314c6a637a494463674e6934314e5341784d433431494445314c6a4d34494445774c6a55674d6a51754d6e6f6949475a706247773949694e6d5a6d4e6a596d51694c7a3438634746306143426b50534a744d7a4d794c6a677a49444d304f5334324d3359784d43347a4e3267744e6a67754d5468324c545977614445344c6a5531597a49334c6a5178494441674e446b754e6a4d674d6a49754d6a49674e446b754e6a4d674e446b754e6a4e364969426d615778735053496a5a6d5a6a59324a6b4969382b50484268644767675a44306962544d354f533434494463334c6a4e324f4334774d574d77494449774c6a59314c5467754d4451674e4441754d4463744d6a49754e6a51674e5451754e6a64734c5445784d6934314d5341784d5449754e5446324c5449794e6934324e6d777a4c6a45344c544d754d546c6a4d5451754e6930784e43343249444d304c6a41794c5449794c6a5930494455304c6a59334c5449794c6a5930494451794c6a5979494441674e7a63754d79417a4e4334324f4341334e79347a494463334c6a4e364969426d615778735053496a5a4441774d4455774969382b50484268644767675a443069625449324e4334324e5341794e5334344d3359794d6a59754e6a5a734c5445784d6934314d5330784d5449754e54466a4c5445304c6a59744d5451754e6930794d6934324e43307a4e4334774d6930794d6934324e4330314e4334324e3359744f4334774d574d774c5451794c6a597949444d304c6a59344c5463334c6a4d674e7a63754d7930334e79347a494449774c6a5931494441674e4441754d4459674f4334774e4341314e4334324e6941794d6934324e486f6949475a706247773949694e6d5a6a52684e4745694c7a3438634746306143426b50534a744d6a45794c6a677a49444d324d4334784d6e597a4d4767314d5334344d6e59744d7a42364969426d615778735053496a5a6d5a6a59324a6b4969382b50484268644767675a443069625449324e4334324e53417a4e6a41754d544a324d7a426f4d7a59754d5452734d7a49754d4451744d7a42364969426d615778735053496a5a6d5a695a4745354969382b5043396e506a777663335a6e50673d3d' alt='Stay safe'/>",
+        "portfolio": {
+            "github_gebruikersnaam": "drdynscript",
+            "linkedin_gebruikersnaam": "philippe-de-pauw"
+        },
+        "is_docent": true,
+        "geboortedatum": 570150000
+    },
+    {
+        "voornaam": "Mathieu",
+        "familienaam": "Spillebeen",
+        "email": "mathieuspillebeen@gmail.com",
+        "thumbnail": "pgm-mathieuspil.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "mathieuspil",
+            "linkedin_gebruikersnaam": "mathieuspil"
+        },
+        "is_docent": true,
+        "geboortedatum": 746920800
+    },
+    {
+        "voornaam": "Michael",
+        "familienaam": "Vanderpoorten",
+        "email": "hello@yungpanda.com",
+        "thumbnail": "pgm-yungpanda.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "yungpanda",
+            "linkedin_gebruikersnaam": "michaelvanderpoorten"
+        },
+        "is_docent": true,
+        "geboortedatum": 788482800
+    },
+    {
+        "voornaam": "Jasper",
+        "familienaam": "De Wilde",
+        "email": "jasper.dewilde@student.arteveldehs.be",
+        "thumbnail": "pgm-pgm-jaspdewi.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "pgm-jaspdewi",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 914713200
+    },
+    {
+        "voornaam": "Jef",
+        "familienaam": "Leroux",
+        "email": "jef.leroux@student.arteveldehs.be",
+        "thumbnail": "pgm-pgm-jeflerou.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "pgm-jeflerou",
+            "linkedin_gebruikersnaam": "jef-leroux-19081b221"
+        },
+        "is_docent": false,
+        "geboortedatum": 879030000
+    },
+    {
+        "voornaam": "Evelien",
+        "familienaam": "Rutsaert",
+        "email": "evelien.rutsaert@arteveldehs.be",
+        "thumbnail": "pgm-evelienrutsaert.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "evelienrutsaert",
+            "linkedin_gebruikersnaam": "evelienrutsaert"
+        },
+        "is_docent": true,
+        "geboortedatum": 725583600
+    },
+    {
+        "voornaam": "Travis",
+        "familienaam": "Bruwiere",
+        "email": "travis.bruwiere@student.arteveldehs.be",
+        "thumbnail": "pgm-pgm-travbruw.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "pgm-travbruw",
+            "linkedin_gebruikersnaam": "travis-bruwiere-5431a0220"
+        },
+        "is_docent": false,
+        "geboortedatum": 887929200
+    },
+    {
+        "voornaam": "Dion",
+        "familienaam": "Van Hecke",
+        "email": "dion.vanhecke@student.arteveldehs.be",
+        "thumbnail": "pgm-pgm-dionvanh.png",
+        "lijfspreuk": "",
+        "portfolio": {
+            "github_gebruikersnaam": "pgm-dionvanh",
+            "linkedin_gebruikersnaam": ""
+        },
+        "is_docent": false,
+        "geboortedatum": 871768800
+    }
+]

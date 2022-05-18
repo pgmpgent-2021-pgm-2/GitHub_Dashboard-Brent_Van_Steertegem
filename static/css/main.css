@@ -1,0 +1,327 @@
+body {
+    margin: 0;
+    background-color: #070707;
+    color: #d2e7f1;
+    word-break: break-word;
+}
+
+section {
+    display: flex;
+}
+   
+body > section {
+    justify-content: space-between;
+}
+
+body> section:first-of-type {
+    background-color: #1eadf1;
+    color: black;
+    align-items: center;
+    min-width: 69rem;
+}
+
+body > section:first-of-type > * {
+    width: 20rem;
+}
+
+body > section:first-of-type > div {
+    display: flex;
+    align-items: center;
+}
+
+svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem 1rem;
+}
+
+body > section:first-of-type > div > section {
+    align-items: center;
+}
+
+p {
+    margin: 0.5rem;
+}
+
+#light_mode {
+    height: 1.4rem;
+    width: 1.4rem;
+    appearance: none;
+    border-radius: 6px;
+    border: 1px solid #070707;
+}
+
+#clock {
+    text-align: center;
+}
+
+#clock, body > section > section > p {
+    padding: 0;
+    margin: 1rem;
+    font-size: 1.4rem;
+}
+
+body > section:first-of-type > section {
+    justify-content: right;
+}
+
+p#weather {
+    margin-right: 0;
+}
+
+#weather_icon {
+    margin: 0.3rem 0.3rem;
+    margin-right: 1rem;
+    height: 3rem;
+}
+
+body > section:last-of-type > div {
+    width: 20rem;
+    min-width: 20rem;
+    border: 0;
+    padding: 0;
+}
+
+body > section > div > h1, body > section > div:first-of-type > div {
+    margin: 1.5rem 1rem;
+    font-size: 2rem;
+    color: #1eadf1;
+}
+
+form {
+    margin: 1.5rem 1rem; 
+}
+
+input[type=text] {
+    border: 0;
+    background-color: #d2e7f1;
+    height: 1rem;
+    padding: 0.5rem;
+    outline: 0;
+}
+
+input[type=submit] {
+    border: 0;
+    background: transparent;
+    color: #1eadf1;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#github_users, #pgm_team {
+    border-top: 1px solid #1eadf1;
+}
+
+li:hover {
+    background-color: #1eadf1;
+    color: #070707;
+}
+
+.github_list_item, .pgm_list_item {
+    padding: 1rem;
+    border-bottom: 1px solid #1eadf1;
+}
+
+.github_list_item {
+    display: flex;
+    align-items: center;
+}
+
+.github_list_item img, .pgm_list_item img {
+    height: 4rem;
+    width: 4rem;
+}
+
+#github_users .no_items {
+    margin: 1rem;
+    width: inherit;
+}
+
+.no_items:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+#repositories li p, .no_items p{
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 6px;
+}
+
+.no_items p {
+    text-align: center;
+}
+
+body > section:last-of-type > div:nth-of-type(2) {
+    border-left: 1px solid #1eadf1;
+    border-right: 1px solid #1eadf1;
+    width: calc(100% - 40rem);
+    min-width: 25rem;
+    padding: 0 2rem;
+}
+
+#user_avatar {
+    min-height: 25rem;
+    max-height: 35rem;
+    height: calc(100vw - 45.3rem);
+    max-width: 35rem;
+    background-size: 100%;
+    background-position: center;
+    margin: 0 auto;
+}
+
+body > section:last-of-type > div:nth-of-type(2) > * {
+    margin-left: 0;
+}
+
+.hidden {
+    position: fixed;
+    left: -50rem;
+}
+
+body > section:last-of-type > div:nth-of-type(2) > label, body > section:last-of-type > div:nth-of-type(2) > p, body > section:last-of-type > div:nth-of-type(2) > a, body > section:last-of-type > div:nth-of-type(2) > ul, #pgm_user > * {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+body > section:last-of-type > div:nth-of-type(2) > p, #pgm_user > p {
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+a {
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+#link_page:hover {
+    color: #1eadf1;
+}
+
+#repositories li, #followers .no_items {
+    width: 100%;
+    margin: 0;
+    height: fit-content;
+}
+
+#repositories li {
+    margin: 1rem 0;
+}
+
+#repositories li:hover {
+    border-radius: 6px;
+}
+
+#followers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#followers li {
+    height: 10rem;
+    margin: 0 1rem 1rem 0;
+}
+
+#followers a {
+    margin: 0;
+}
+
+#followers div {
+    position: relative;
+    height: 10rem;
+}
+
+#followers img {
+    height: 10rem;
+    width: 10rem;
+}
+
+#followers a div p {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: rgba(7,7,7,0.8);
+    color: #d2e7f1;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.pgm_list_item > div {
+    display: flex;
+    align-items: center;
+}
+
+.pgm_list_item > p {
+    margin: 0.5rem 0 0 0;
+}
+
+/* Styling for light mode */
+.light_mode {
+    background-color: #f0f3f5;
+    color: #070707;
+}
+
+body.light_mode> section:first-of-type {
+    background-color: #054cb7;
+    color: #f0f3f5;
+}
+
+.light_mode svg {
+    fill: #f0f3f5;
+    background-color: transparent;
+}
+
+#light_mode:checked {
+    background-color: #f0f3f5;
+    border: 1px solid #054cb7;
+    position: relative;
+}
+
+#light_mode:checked:after {
+    content: "\2713";
+    color: #070707;
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0.26rem;
+}
+
+.light_mode h1, .light_mode input[type=submit] {
+    color: #054cb7;
+}
+
+.light_mode #github_users, .light_mode #pgm_team {
+    border-top: 1px solid #054cb7;
+}
+
+.light_mode .github_list_item, .light_mode .pgm_list_item {
+    border-bottom: 1px solid #054cb7; 
+}
+
+body.light_mode > section:last-of-type > div:nth-of-type(2) {
+    border-left: 1px solid #054cb7;
+    border-right: 1px solid #054cb7;
+}
+
+.light_mode li:hover {
+    background-color: #054cb7;
+    color: #f0f3f5;
+}
+
+.light_mode .no_items:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+.light_mode #link_page:hover{
+    color: #054cb7;
+}
